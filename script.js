@@ -2,7 +2,7 @@
 
 class LinkedList {
   constructor() {
-    this.head = null;
+    this.listHead = null;
     this.length = 0;
   }
 
@@ -15,10 +15,10 @@ class LinkedList {
 
     // If list is empty, add node to head
     // If list is not empty, iterate to end of list
-    if (this.head === null) {
-      this.head = node;
+    if (this.listHead === null) {
+      this.listHead = node;
     } else {
-      current = this.head;
+      current = this.listHead;
 
       // Iterates to end of list
       while (current.next) {
@@ -39,11 +39,11 @@ class LinkedList {
 
   // Returns head of list
   head() {
-    return this.head;
+    return this.listHead;
   }
 
   tail() {
-    let current = this.head;
+    let current = this.listHead;
 
     // Iterate to end of list
     while (current.next) {
@@ -67,3 +67,5 @@ list.append('cat');
 list.append('dog');
 list.append('horse');
 console.log(list.size());
+console.log(list.head());
+console.log(list.tail())
