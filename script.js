@@ -6,6 +6,7 @@ class LinkedList {
     this.length = 0;
   }
 
+  // Add node to end of list
   append(value) {
     // Create new node
     const node = new Node(value);
@@ -32,17 +33,22 @@ class LinkedList {
     this.length++;
   }
 
+  // Add node to start of list
   prepend(value) {
+    // Instantiate new node, if list is empty make node the head
     const node = new Node(value);
     if (this.listHead === null) {
       this.listHead = node;
 
+      // If list is not empty, store list, make new node the head, place stored
+      // list as next item in node head
     } else {
-
       let current = this.listHead;
       this.listHead = node;
       this.listHead.next = current;
     }
+
+    // Increment size of list
     this.length++;
   }
 
@@ -81,6 +87,7 @@ list.append('cat');
 list.append('dog');
 list.append('horse');
 list.prepend('cow');
-// console.log(list.size());
-// console.log(list.head());
+console.log(list.size());
+console.log(list.head());
+console.log(list.tail());
 
