@@ -73,6 +73,19 @@ class LinkedList {
     // Returns last item in list
     return current;
   }
+
+  at(index) {
+    let count = 0;
+    let current = this.listHead;
+    while (count <= index) {
+      if (count === index) {
+        return current;
+      } else {
+        count++;
+        current = current.next;
+      }
+    } 
+  }
 }
 
 class Node {
@@ -90,4 +103,5 @@ list.prepend('cow');
 console.log(list.size());
 console.log(list.head());
 console.log(list.tail());
+console.log(list.at(3));
 
