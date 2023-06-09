@@ -32,6 +32,20 @@ class LinkedList {
     this.length++;
   }
 
+  prepend(value) {
+    const node = new Node(value);
+    if (this.listHead === null) {
+      this.listHead = node;
+
+    } else {
+
+      let current = this.listHead;
+      this.listHead = node;
+      this.listHead.next = current;
+    }
+    this.length++;
+  }
+
   // Returns size of list
   size() {
     return this.length;
@@ -66,6 +80,7 @@ const list = new LinkedList();
 list.append('cat');
 list.append('dog');
 list.append('horse');
-console.log(list.size());
-console.log(list.head());
-console.log(list.tail())
+list.prepend('cow');
+// console.log(list.size());
+// console.log(list.head());
+
