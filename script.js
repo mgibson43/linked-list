@@ -86,6 +86,18 @@ class LinkedList {
       }
     } 
   }
+
+  pop() {
+    let current = this.listHead;
+    while (current.next) {
+      current = current.next;
+    }
+    
+    const currVal = current;
+    console.log(current);
+    current = null;
+    return currVal;
+  }
 }
 
 class Node {
@@ -96,12 +108,10 @@ class Node {
 }
 
 const list = new LinkedList();
+list.append('cow');
 list.append('cat');
-list.append('dog');
-list.append('horse');
-list.prepend('cow');
-console.log(list.size());
-console.log(list.head());
-console.log(list.tail());
+list.append('bunny');
+list.prepend('bull');
+console.log(list);
 console.log(list.at(3));
 
