@@ -130,6 +130,17 @@ class LinkedList {
 
     return 'Value not found';
   }
+
+  toString() {
+    let current = this.listHead;
+    let listString = `(${current.value})`;
+    while (current.next) {
+      listString = `${listString} -> (${current.next.value})`;
+      current = current.next;
+    }
+    listString = `${listString} -> null`;
+    return listString;
+  }
 }
 
 class Node {
@@ -147,3 +158,4 @@ list.prepend('bull');
 console.log(list.find('cat'));
 console.log(list.contains('cat'));
 console.log(list.contains('mouse'));
+console.log(list.toString());
