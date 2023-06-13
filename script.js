@@ -107,6 +107,20 @@ class LinkedList {
     let count = 0;
     while (count < this.length) {
       if (current.value == value) {
+        return true;
+      } else {
+        count++;
+        current = current.next;
+      }
+    }
+    return false;
+  }
+
+  find(value) {
+    let current = this.listHead;
+    let count = 0;
+    while (count < this.length) {
+      if (current.value == value) {
         return count;
       } else {
         current = current.next;
@@ -130,5 +144,6 @@ list.append('cow');
 list.append('cat');
 list.append('bunny');
 list.prepend('bull');
+console.log(list.find('cat'));
 console.log(list.contains('cat'));
-console.log(list.at(6));
+console.log(list.contains('mouse'));
