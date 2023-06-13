@@ -153,11 +153,11 @@ class LinkedList {
   toString() {
     // Initialize variables and set head value as first item in string
     let current = this.listHead;
-    let listString = `(${current.value})`;
+    let listString = `( ${current.value} )`;
 
     // Iterate though list, adding value of each node to string
     while (current.next) {
-      listString = `${listString} -> (${current.next.value})`;
+      listString = `${listString} -> ( ${current.next.value} )`;
       current = current.next;
     }
 
