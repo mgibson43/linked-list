@@ -75,9 +75,13 @@ class LinkedList {
   }
 
   at(index) {
+    // Initialize variables
     let count = 0;
     let current = this.listHead;
+
+    // Iterate through list until designated index is reached
     while (count < this.length) {
+      // return node at designated index
       if (count === index) {
         return current;
       } else {
@@ -86,25 +90,34 @@ class LinkedList {
       }
     }
 
+    // Returns if index is out of bounds
     return 'Index out of bounds';
   }
 
   pop() {
+    // Initialize variables
     let previous;
     let current = this.listHead;
+
+    // Iterate to end of list
     while (current.next) {
       previous = current;
       current = current.next;
     }
     
+    // Make next node of second to last item null
+    // Decrement length and return popped node
     previous.next = null;
     this.length--;
     return current;
   }
 
   contains(value) {
+    // Initialize variables
     let current = this.listHead;
     let count = 0;
+
+    // Iterate through list, return true if match is found
     while (count < this.length) {
       if (current.value == value) {
         return true;
@@ -113,12 +126,17 @@ class LinkedList {
         current = current.next;
       }
     }
+
+    // Return false if match is not found
     return false;
   }
 
   find(value) {
+    // Initializes variables
     let current = this.listHead;
     let count = 0;
+
+    // Iterates through list, if match is found, return count
     while (count < this.length) {
       if (current.value == value) {
         return count;
@@ -128,16 +146,22 @@ class LinkedList {
       }
     }
 
+    // If no match is found, return "Value not found"
     return 'Value not found';
   }
 
   toString() {
+    // Initialize variables and set head value as first item in string
     let current = this.listHead;
     let listString = `(${current.value})`;
+
+    // Iterate though list, adding value of each node to string
     while (current.next) {
       listString = `${listString} -> (${current.next.value})`;
       current = current.next;
     }
+
+    // Add null to tail of string and return string
     listString = `${listString} -> null`;
     return listString;
   }
