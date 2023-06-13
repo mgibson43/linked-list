@@ -104,7 +104,7 @@ class LinkedList {
       previous = current;
       current = current.next;
     }
-    
+
     // Make next node of second to last item null
     // Decrement length and return popped node
     previous.next = null;
@@ -165,6 +165,39 @@ class LinkedList {
     listString = `${listString} -> null`;
     return listString;
   }
+
+  insertAt(value, index) {
+
+    // Initialize variables
+    const node = new Node(value);
+    let count = 0;
+    let previous;
+    let current = this.listHead;
+
+    // Find index and insert value
+    while (current.next) {
+      if (count === index) {
+        break;
+      } else {
+        console.log(count);
+        count++;
+        previous = current;
+        current = current.next;
+      }
+    }
+
+    // If given index is greater than list size - 1, append value to end of list
+    if (current.next == null) {
+      current.next = node;
+    } else {
+      previous.next = node;
+      previous = previous.next;
+      previous.next = current;
+    }
+
+    // Increment list
+    this.length++;
+  }
 }
 
 class Node {
@@ -179,7 +212,6 @@ list.append('cow');
 list.append('cat');
 list.append('bunny');
 list.prepend('bull');
-console.log(list.find('cat'));
-console.log(list.contains('cat'));
-console.log(list.contains('mouse'));
+list.insertAt('horse', 5);
 console.log(list.toString());
+console.log(list);
