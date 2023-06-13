@@ -88,15 +88,16 @@ class LinkedList {
   }
 
   pop() {
+    let previous;
     let current = this.listHead;
     while (current.next) {
+      previous = current;
       current = current.next;
     }
     
-    const currVal = current;
-    console.log(current);
-    current = null;
-    return currVal;
+    previous.next = null;
+    this.length--;
+    return current;
   }
 }
 
@@ -113,5 +114,6 @@ list.append('cat');
 list.append('bunny');
 list.prepend('bull');
 console.log(list);
-console.log(list.at(3));
-
+console.log(list.pop());
+console.log(list.tail());
+console.log(list);
