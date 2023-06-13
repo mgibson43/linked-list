@@ -166,6 +166,7 @@ class LinkedList {
     return listString;
   }
 
+  // Method to take a value and index and place a node with the value into the given index
   insertAt(value, index) {
 
     // Initialize variables
@@ -198,20 +199,36 @@ class LinkedList {
     // Increment list
     this.length++;
   }
+
+  // Method to take an index and remove the node at the given index
+  removeAt(index) {
+
+    // Initialize variables
+    let count = 0;
+    let current = this.listHead;
+    let previous;
+
+    // Iterate through list until match for index is found
+    // If match is found, remove node at index
+    while (current.next) {
+      if (count === index) {
+        previous.next = null;
+        previous.next = current.next;
+        this.length--;
+        break;
+      } else {
+        count++;
+        previous = current;
+        current = current.next;
+      }
+    }
+  }
 }
 
+// Node class containing value of node and link to next node
 class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
   }
 }
-
-const list = new LinkedList();
-list.append('cow');
-list.append('cat');
-list.append('bunny');
-list.prepend('bull');
-list.insertAt('horse', 5);
-console.log(list.toString());
-console.log(list);
