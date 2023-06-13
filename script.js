@@ -77,14 +77,16 @@ class LinkedList {
   at(index) {
     let count = 0;
     let current = this.listHead;
-    while (count <= index) {
+    while (count < this.length) {
       if (count === index) {
         return current;
       } else {
         count++;
         current = current.next;
       }
-    } 
+    }
+
+    return 'Index out of bounds';
   }
 
   pop() {
@@ -98,6 +100,21 @@ class LinkedList {
     previous.next = null;
     this.length--;
     return current;
+  }
+
+  contains(value) {
+    let current = this.listHead;
+    let count = 0;
+    while (count < this.length) {
+      if (current.value == value) {
+        return count;
+      } else {
+        current = current.next;
+        count++;
+      }
+    }
+
+    return 'Value not found';
   }
 }
 
@@ -113,7 +130,5 @@ list.append('cow');
 list.append('cat');
 list.append('bunny');
 list.prepend('bull');
-console.log(list);
-console.log(list.pop());
-console.log(list.tail());
-console.log(list);
+console.log(list.contains('cat'));
+console.log(list.at(6));
